@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#103b2a" />
+  <title>LeafLens AI — Leaf Health Screening</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="brand-mark">🌿</div>
+    <div><p class="eyebrow">COMPUTER VISION PROJECT</p><h1>LeafLens AI</h1><p class="subtitle">A smarter first look at plant leaf health.</p></div>
+    <span class="status"><span class="dot"></span> Image screening</span>
+  </header>
+  <main>
+    <section class="intro"><div><p class="eyebrow green">HOW IT WORKS</p><h2>Upload a leaf. Get an AI screening.</h2><p class="muted">Choose a clear, well-lit image with one leaf in focus. The model returns a predicted class and confidence score.</p></div><div class="steps"><span>01 <b>Upload</b></span><span>02 <b>Analyze</b></span><span>03 <b>Review</b></span></div></section>
+    <section class="workspace">
+      <article class="panel upload-panel"><div class="panel-heading"><span class="number">1</span><div><h3>Upload a leaf image</h3><p class="muted small">JPG, JPEG, PNG · Maximum 4 MB</p></div></div>
+        <label class="dropzone" id="dropzone" for="imageInput"><div class="upload-icon">↑</div><strong>Choose an image</strong><span class="muted small">or drag and drop it here</span><input id="imageInput" type="file" accept="image/png,image/jpeg,.jpg,.jpeg,.png" hidden /></label>
+        <div id="previewWrap" class="preview-wrap hidden"><img id="preview" alt="Selected leaf preview"/><div class="file-info"><strong id="fileName">leaf.jpg</strong><span id="fileSize" class="muted small"></span><button id="removeBtn" class="text-button" type="button">Remove image</button></div></div>
+        <p class="hint">Tip: avoid blurry photos, harsh shadows, and busy backgrounds.</p>
+      </article>
+      <article class="panel result-panel"><div class="panel-heading"><span class="number">2</span><div><h3>AI analysis</h3><p class="muted small">Prediction from your trained model</p></div></div>
+        <div id="emptyState" class="empty-state"><div class="leaf-art">✳</div><h4>Ready when you are</h4><p class="muted">Select a leaf image, then start the analysis.</p></div>
+        <div id="result" class="result hidden"><p class="eyebrow green">PREDICTED CLASS</p><h2 id="predictionLabel">Healthy</h2><div class="confidence-row"><span>Model confidence</span><strong id="confidenceText">0%</strong></div><div class="meter"><span id="confidenceBar"></span></div><div id="interpretation" class="interpretation"></div><p class="disclaimer">This is an educational screening result, not a confirmed diagnosis. Verify important decisions with a local agricultural expert.</p></div>
+        <div id="notice" class="notice hidden" role="status"></div>
+        <button id="analyzeBtn" class="primary-button" disabled><span id="buttonText">Analyze leaf</span><span id="spinner" class="spinner hidden"></span></button>
+      </article>
+    </section>
+    <section class="info-grid"><article class="info-card"><span class="info-icon">⌁</span><h3>Image preprocessing</h3><p class="muted">The backend resizes the image to the model's input dimensions before classification.</p></article><article class="info-card"><span class="info-icon">◈</span><h3>AI classification</h3><p class="muted">A trained image classifier predicts one of the classes represented in its dataset.</p></article><article class="info-card"><span class="info-icon">◎</span><h3>Responsible use</h3><p class="muted">Results depend on training data, image quality, lighting, and the plant species.</p></article></section>
+  </main>
+  <footer>LeafLens AI · REC Computer Vision Project <span>Vercel edition</span></footer>
+  <script src="/app.js" defer></script>
+</body></html>
